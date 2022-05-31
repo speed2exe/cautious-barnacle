@@ -41,6 +41,10 @@ fn main() {
     // not as flexible as vectors, cannot be resized
     // useful and fast if you know the size in advance
     let a = [1, 2, 3, 4, 5]; // array of 5 elements
+    // Access array elements with index notation
+    // Will panic if index is out of bounds (do your checks)
+    a[1]; 
+    
     let a: [i32; 5] = [1, 2, 3, 4, 5]; // array of 5 elements with type annotation
     let a = [3; 5]; // array of 5 elements with value 3
     let a: [i32; 5]; // array of 5 elements with type annotation
