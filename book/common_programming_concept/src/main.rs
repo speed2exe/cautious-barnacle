@@ -51,10 +51,87 @@ fn main() {
     // initializing array later (higher performance, but unsafe)
     let mut a: [i32; 5] = unsafe { std::mem::uninitialized() }; // uninitialized array, garbage value
     
+    // variable names are snake_case
+    let my_num = 5;
+
+    // statements do not return a value
+    // let x = (let y = 6); // let is not allowed
+
+    // A new scope is created for with curly braces is an expression
+    // expression do not include semicolons, unlike statements
+    let x = {
+        let k = 2;
+        k * 2
+    };
+
+    // Control Flow
+    // if, else, else if
+    if x == 5 {
+        println!("x is 5");
+    } else if x == 6 {
+        println!("x is 6");
+    } else {
+        println!("x is neither 5 nor 6");
+    }
+
+    // Using if in a let statement
+    let y = if x == 5 { 10 } else { 15 };
+
+    let y = {
+        if x == 5 { 
+            10 
+        } else {
+            15 
+        }
+    };
+
+    // loop
+    // again is printed non stop
+    loop {
+        println!("again!");
+        // break; // use break to exit loop
+    }
+
+    // returning values from loop
+    // break is used to exit loop, 
+    let x: i32 = loop {
+        break 2;
+    };
+
+    // conditional loop with while
+    let mut x = 5;
+    while x != 0 {
+        println!("{}!", x);
+        x -= 1;
+    }
+
+    // looping through a collection
+    let a = [10, 20, 30, 40, 50];
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+
+    let a = 1..4;
+    for num in a {
+        println!("{}!", num);
+    }
+
+    for i in a.rev() {
+        println!("{}!", i);
+    }
+    
+    
 }
 
+// function name are snake_case
+// last unassigned expression is returned from function
 fn get_num() -> i64 {
     54
+}
+
+// function parameters type must be declared
+fn add_one(x: i32) -> i32 {
+    x + 1
 }
 
 // Difference between let and const
