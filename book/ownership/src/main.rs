@@ -1,4 +1,7 @@
 fn main() {
+
+    let a = Some(5);
+
     println!("Hello, world!");
 
     let s: &str = "hello 世界";
@@ -13,7 +16,6 @@ fn main() {
     for b in s.bytes() {
         println!("byte: {}", b);
     }
-    s[0];
 
 
     // OK because s is a &str and content is stored in heap
@@ -147,3 +149,25 @@ fn print_type_of<T>(_: &T) {
 //     let s = String::from("hello");
 //     &s
 // }
+
+enum Fruit {
+    apple,
+    orange,
+}
+
+// implement print String for Fruit
+impl std::fmt::Display for Fruit {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        match self {
+            Fruit::apple => write!(f, "apple"),
+            Fruit::orange => write!(f, "orange"),
+        }
+    }
+}
+
+fn print_fruit(f: Fruit) {
+    match f {
+        Fruit::apple => println!("apple"),
+        Fruit::orange => println!("orange"),
+    }
+}
