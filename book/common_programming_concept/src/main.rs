@@ -8,7 +8,6 @@ fn main() {
     let z: i64 = 6;
     let z = "hello"; // -> shadows the previous z
 
-
     // if u32 is removed, complier will complain because it does not know that you want to parse
     // u32
     let guess: u32 = "42".parse().expect("Not a number!");
@@ -21,7 +20,6 @@ fn main() {
     let z = 'ℤ';
     let heart_eyed_cat = '😻';
 
-
     // Compound types
 
     // tuple
@@ -29,11 +27,11 @@ fn main() {
     let tup: (i32, f64, u8) = (500, 6.4, 1);
     // Access tuple elements
     let (x, y, z) = tup; // destructuring
-    // acccess tuple elements by index
+                         // acccess tuple elements by index
     let x: i32 = tup.0; // dot notation
 
     let unit = (); // unit type
-    // function that returns unit if no return value
+                   // function that returns unit if no return value
 
     // ARRAYS
     // every element has the same type
@@ -41,16 +39,16 @@ fn main() {
     // not as flexible as vectors, cannot be resized
     // useful and fast if you know the size in advance
     let a = [1, 2, 3, 4, 5]; // array of 5 elements
-    // Access array elements with index notation
-    // Will panic if index is out of bounds (do your checks)
-    a[1]; 
-    
+                             // Access array elements with index notation
+                             // Will panic if index is out of bounds (do your checks)
+    a[1];
+
     let a: [i32; 5] = [1, 2, 3, 4, 5]; // array of 5 elements with type annotation
     let a = [3; 5]; // array of 5 elements with value 3
     let a: [i32; 5]; // array of 5 elements with type annotation
-    // initializing array later (higher performance, but unsafe)
+                     // initializing array later (higher performance, but unsafe)
     let mut a: [i32; 5] = unsafe { std::mem::uninitialized() }; // uninitialized array, garbage value
-    
+
     // variable names are snake_case
     let my_num = 5;
 
@@ -78,10 +76,10 @@ fn main() {
     let y = if x == 5 { 10 } else { 15 };
 
     let y = {
-        if x == 5 { 
-            10 
+        if x == 5 {
+            10
         } else {
-            15 
+            15
         }
     };
 
@@ -93,7 +91,7 @@ fn main() {
     }
 
     // returning values from loop
-    // break is used to exit loop, 
+    // break is used to exit loop,
     let x: i32 = loop {
         break 2;
     };
@@ -119,8 +117,6 @@ fn main() {
     for i in a.rev() {
         println!("{}!", i);
     }
-    
-    
 }
 
 // function name are snake_case

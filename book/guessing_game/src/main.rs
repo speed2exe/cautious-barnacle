@@ -1,6 +1,6 @@
-use std::io::stdin;
 use rand::Rng;
 use std::cmp::Ordering;
+use std::io::stdin;
 
 // The main function
 fn main() {
@@ -38,7 +38,7 @@ fn get_guess() -> i64 {
             Err(err) => {
                 println!("Please input a number, err: {}", err);
                 input.clear();
-            },
+            }
         }
     }
 }
