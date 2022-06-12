@@ -1,5 +1,5 @@
-fn main() {
 
+fn main() {
     let a = Some(5);
 
     println!("Hello, world!");
@@ -108,11 +108,24 @@ fn main() {
     // The character type, char.
     // Tuples, if they only contain types that also implement Copy. For example, (i32, i32) implements Copy, but (i32, String) does not.
 
-{
+    {
         let s = String::from("hello world");
         let hello = sub_string(&s);
         let world = &s[6..11];
 
+    }
+
+    {
+        let mut s  = String::from("hello world");
+        let word = first_word(&s);
+        // &s is being passed to first_order, which is an immutable reference
+        // s.clear() takes in s is a mutable reference
+        // because there can exist only (1 or more immutable ref) or (1 mutable ref)
+        // word is not valid anymore when s is cleared
+        // calling println!("{}", s) will cause error
+        // therefore the statement below is not allowed
+        // s.clear();
+        // println!("the first word is:{}",word)   
     }
 
 
@@ -170,4 +183,17 @@ fn print_fruit(f: Fruit) {
         Fruit::apple => println!("apple"),
         Fruit::orange => println!("orange"),
     }
+}
+
+// function that takes a string and returns the first word
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
 }
