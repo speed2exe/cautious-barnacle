@@ -113,6 +113,9 @@ fn main() {
         let hello = sub_string(&s);
         let world = &s[6..11];
 
+        // Get all chars of s
+        let chars_iter = s.chars();
+        let chars: Vec<char> = chars_iter.collect();
     }
 
     {
